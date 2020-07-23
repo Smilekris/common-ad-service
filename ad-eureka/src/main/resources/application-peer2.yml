@@ -1,0 +1,14 @@
+server:
+  port: 8081
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://peer1:8080/eureka/,http://peer3:8082/eureka/
+spring:
+  application:
+    name: ad-eureka
+  profiles: peer2

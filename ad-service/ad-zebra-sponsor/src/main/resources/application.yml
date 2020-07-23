@@ -1,0 +1,26 @@
+server:
+  port: 7000
+  servlet:
+    context-path: /ad-sponsor
+spring:
+  application:
+    name: eruaka-client-ad-sponsor
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zebra_ad?useUnicode=true&characterEncoding=utf8
+    username: ENC(okfv1yjycIwSphZvk3FYPA==)
+    password: ENC(3PpNE+zv35wK987iE6Qh2Q==)
+    filters: stat,wall,log4j
+    dbcp2:
+      min-idle: 5
+      initial-size: 5
+      max-total: 2000
+      max-wait-millis: 200
+jasypt:
+  encryptor:
+    password: ambition
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8080/eureka/,http://peer2:8081/eureka/,http://peer3:8082/eureka/

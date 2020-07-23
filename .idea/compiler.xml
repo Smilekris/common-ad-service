@@ -7,12 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ad-eureka" />
+        <module name="ad-zebra-common" />
+        <module name="ad-gateway" />
+        <module name="adcommon" />
+        <module name="ad-zebra-sponsor" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ad-eureka" options="-parameters" />
+      <module name="ad-gateway" options="-parameters" />
+      <module name="ad-service" options="-parameters" />
+      <module name="ad-zebra-common" options="-parameters" />
+      <module name="ad-zebra-sponsor" options="-parameters" />
+      <module name="adcommon" options="-parameters" />
       <module name="zebra-ad" options="-parameters" />
     </option>
   </component>

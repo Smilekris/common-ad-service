@@ -1,0 +1,43 @@
+spring:
+  # 配置文件名称，用来标识不同环境的配置。由 spring.profiles.active 的值来决定使用哪组配置。
+  ## 简单尝试
+  ## profiles: route_simple
+  application:
+    # 应用名称
+    name: ad-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 是否和服务注册与发现组件结合，设置为 true 后可以直接使用应用名称调用服务
+          enabled: true
+      # 路由（routes：路由，它由唯一标识（ID）、目标服务地址（uri）、一组断言（predicates）和一组过滤器组成（filters）。filters 不是必需参数。）
+      routes:
+        # 路由标识（id：标识，具有唯一性）   简单尝试
+        - id: route_simple
+          # 目标服务地址（uri：地址，请求转发后的地址）
+          uri: lb://ad-provider
+          # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+          predicates:
+            - Path=/zebra/**
+          ## 转发地址格式为 uri/archive
+          filters:
+            ## 截取路径位数
+            - StripPrefix=1
+
+server:
+  port: 8091
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://peer1:8080/eureka/,http://peer2:8081/eureka/,http://peer2:8081/eureka/
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
