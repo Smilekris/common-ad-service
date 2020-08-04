@@ -1,6 +1,6 @@
 package ad.zebra.common.entity;
 
-public class ResponseResult<T> {
+public class R<T> {
 
     private final static Integer SUCCESS = 0;
     private final static Integer FAIL = -1;
@@ -11,10 +11,10 @@ public class ResponseResult<T> {
 
     private T result;
 
-    private ResponseResult(){
+    private R(){
     }
 
-    private ResponseResult(Integer code) {
+    private R(Integer code) {
         this.code = code;
     }
 
@@ -22,7 +22,7 @@ public class ResponseResult<T> {
         return code;
     }
 
-    public ResponseResult setCode(Integer code) {
+    public R setCode(Integer code) {
         this.code = code;
         return this;
     }
@@ -31,7 +31,7 @@ public class ResponseResult<T> {
         return msg;
     }
 
-    public ResponseResult setMsg(String msg) {
+    public R setMsg(String msg) {
         this.msg = msg;
         return this;
     }
@@ -40,7 +40,7 @@ public class ResponseResult<T> {
         return result;
     }
 
-    public ResponseResult setResult(T result) {
+    public R setResult(T result) {
         this.result = result;
         return this;
     }
@@ -54,16 +54,16 @@ public class ResponseResult<T> {
     }
 
     public static class ResultHelper{
-        public static ResponseResult instance(){
-           return  new ResponseResult();
+        public static R instance(){
+           return  new R();
         }
 
-        public static ResponseResult successInstance(){
-            return  new ResponseResult(SUCCESS);
+        public static R successInstance(){
+            return  new R(SUCCESS);
         }
 
-        public static ResponseResult failInstance(){
-            return  new ResponseResult(FAIL);
+        public static R failInstance(){
+            return  new R(FAIL);
         }
     }
 

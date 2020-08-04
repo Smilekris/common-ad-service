@@ -1,6 +1,6 @@
 package ad.zebra.common.advice;
 
-import ad.zebra.common.entity.ResponseResult;
+import ad.zebra.common.entity.R;
 import ad.zebra.common.exception.ZebraException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class ZebraExceptionHandler {
     @ExceptionHandler(ZebraException.class)
     @ResponseBody
     ResponseEntity<?> handleControllerException(HttpServletRequest request, ZebraException ex) {
-        return new ResponseEntity<>(ResponseResult.ResultHelper.instance().setCode(ex.getCode()).setMsg(ex.getMsg()), HttpStatus.OK);
+        return new ResponseEntity<>(R.ResultHelper.instance().setCode(ex.getCode()).setMsg(ex.getMsg()), HttpStatus.OK);
     }
 
     private HttpStatus getStatus(HttpServletRequest request) {

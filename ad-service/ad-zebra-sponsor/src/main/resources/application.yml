@@ -8,7 +8,7 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/zebra_ad?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://127.0.0.1:3306/zebra_ad?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: ENC(okfv1yjycIwSphZvk3FYPA==)
     password: ENC(3PpNE+zv35wK987iE6Qh2Q==)
     filters: stat,wall,log4j

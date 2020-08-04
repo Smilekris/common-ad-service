@@ -1,3 +1,4 @@
+import ad.zebra.sponsor.entity.AdUser;
 import org.jasypt.util.text.BasicTextEncryptor;
 
 /**
