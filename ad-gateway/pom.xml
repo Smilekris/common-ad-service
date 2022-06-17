@@ -15,7 +15,7 @@
     <!-- 在 properties下声明相应的版本信息，然后在 dependency 下引用的时候用 ${} 就可以引入该版本 jar 包了 -->
     <properties>
         <!-- ali json -->
-        <fastjson.version>1.2.47</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
     </properties>
 
     <!-- 加入依赖 -->
